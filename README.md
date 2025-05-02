@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Marzive Oracle
 
 Marzive Oracle is a question-answering system powered by Google's Gemini AI. It provides concise, focused answers to questions about Marzive DAO and related documents.
@@ -43,10 +44,10 @@ Marzive Oracle is a question-answering system powered by Google's Gemini AI. It 
 3. Set up your Gemini API key as an environment variable:
    ```bash
    # On Windows
-   set GEMINI_API_KEY=your_gemini_api_key_here
+   set GEMINI_API_KEY=AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o
    
    # On macOS/Linux
-   export GEMINI_API_KEY=your_gemini_api_key_here
+   export GEMINI_API_KEY=AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o
    ```
 
    Alternatively, you can provide the API key directly when calling the `gemini_answer` function.
@@ -93,7 +94,7 @@ from gemini_qa.gemini_qa_infer import gemini_answer
 
 question = "What is the Marzive DAO?"
 context = "Your context text here..."
-api_key = "your_gemini_api_key"  # Optional if set as environment variable
+api_key = "AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o"  # Optional if set as environment variable
 
 answer = gemini_answer(question, context, api_key)
 print(answer)
@@ -113,3 +114,6 @@ print(answer)
 ## License
 
 [Specify your license here]
+=======
+# marzive-oracle
+>>>>>>> origin/main
