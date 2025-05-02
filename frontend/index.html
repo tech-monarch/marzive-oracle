@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marzive QA Frontend</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ask Marzive Oracle</h1>
+      <div id="chat-box">
+        <!-- <h2>Chat</h2> -->
+        <div id="messages"></div>
+      </div>
+      <form id="qa-form">
+        <textarea
+          id="question"
+          placeholder="Type your question here..."
+          required
+        ></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <script>
+      const messagesDiv = document.getElementById("messages");
+      const form = document.getElementById("qa-form");
+      const textarea = document.getElementById("question");
+      let chatHistory = [];
+      function renderMessages() {
+        messagesDiv.innerHTML = chatHistory
+          .map(
+            (msg) =>
+              `<div class="msg ${msg.role}"><b>${
+                msg.role === "user" ? "You" : "Marzive Oracle"
+              }:</b> ${msg.text}</div>`
+          )
+          .join("");
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const question = textarea.value.trim();
+        if (!question) return;
+        chatHistory.push({ role: "user", text: question });
+        renderMessages();
+        textarea.value = "";
+        try {
+          const res = await fetch("http://localhost:5000/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: question }),
+          });
+          const data = await res.json();
+          chatHistory.push({
+            role: "bot",
+            text: data.answer || "No answer received.",
+          });
+          renderMessages();
+        } catch (err) {
+          chatHistory.push({ role: "bot", text: "Error: " + err });
+          renderMessages();
+        }
+      });
+      renderMessages();
+    </script>
+  </body>
+</html>
