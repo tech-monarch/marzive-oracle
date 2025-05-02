@@ -5,7 +5,8 @@ Marzive Oracle is a question-answering system powered by Google's Gemini AI. It 
 ## Project Structure
 
 ```
-├── api_server.py            # Flask API server
+├── api/                    # Serverless backend functions (e.g., for Vercel)
+│   └── chat.py             # /api/chat endpoint implementation
 ├── extract_and_prepare_data.py  # Data preparation script
 ├── documents/               # Source documents
 ├── frontend/               # Web interface
@@ -65,19 +66,19 @@ If you have new documents to process:
    This will extract text from all .docx files and save it to `prepared_documents.json`
 
 ### Backend API (Serverless Function)
+The backend is designed to run as a serverless function under the `api` directory (e.g., for Vercel deployment). There is no need to run a Flask server locally.
 
-The backend is designed to run as a serverless function under the `api` directory (e.g., for Vercel deployment). There is no need to run a Flask server locally on port 5000.
+**To test the backend locally, you must use the Vercel development server:**
 
-- To deploy locally with Vercel:
-  1. Install Vercel CLI if you haven't:
-     ```bash
-     npm install -g vercel
-     ```
-  2. Deploy locally:
-     ```bash
-     vercel dev
-     ```
-  3. The API will be available at `/api/chat`.
+1. Install Vercel CLI if you haven't:
+   ```bash
+   npm install -g vercel
+   ```
+2. Run the local development server from the project root:
+   ```bash
+   vercel dev
+   ```
+3. The API will be available at `/api/chat`.
 
 - For production, deploy the project to Vercel and the backend will be served as a serverless function automatically.
 
@@ -117,7 +118,7 @@ print(answer)
 
 - If you encounter a "Gemini API key not found" error, ensure you've set the `GEMINI_API_KEY` environment variable correctly.
 - If the frontend cannot connect to the API, ensure the serverless function is deployed and accessible at `/api/chat`.
-- If using Vercel locally, make sure `vercel dev` is running and you are accessing the correct local URL.
+- If using Vercel locally, make sure `vercel dev` is running from the project root and you are accessing the correct local URL.
 
 ## License
 
