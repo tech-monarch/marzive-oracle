@@ -43,10 +43,10 @@ Marzive Oracle is a question-answering system powered by Google's Gemini AI. It 
 3. Set up your Gemini API key as an environment variable:
    ```bash
    # On Windows
-   set GEMINI_API_KEY=your_gemini_api_key_here
+   set GEMINI_API_KEY=AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o
    
    # On macOS/Linux
-   export GEMINI_API_KEY=your_gemini_api_key_here
+   export GEMINI_API_KEY=AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o
    ```
 
    Alternatively, you can provide the API key directly when calling the `gemini_answer` function.
