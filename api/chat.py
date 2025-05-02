@@ -4,7 +4,7 @@ import json
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'gemini_qa'))
 from gemini_qa_infer import load_data, gemini_answer
 
-def handler(request):
+def main(request):
     if request.method != "POST":
         return {
             "statusCode": 405,
