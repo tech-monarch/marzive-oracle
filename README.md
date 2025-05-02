@@ -87,7 +87,7 @@ If you have new documents to process:
 ### Using the Gemini QA Module Directly
 
 You can also use the Gemini QA module directly in your Python code:
-
+ 
 ```python
 from gemini_qa.gemini_qa_infer import gemini_answer
 
