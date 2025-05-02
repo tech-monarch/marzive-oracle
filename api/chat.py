@@ -31,8 +31,10 @@ def main(request):
             "body": json.dumps({"answer": answer})
         }
     except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
         return {
             "statusCode": 500,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"error": str(e)})
+            "body": json.dumps({"error": str(e), "details": error_details})
         }

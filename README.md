@@ -122,8 +122,7 @@ print(answer)
 
 ## License
 
-[Specify your license here]
-<<<<<<< HEAD
+MIT
 =======
 # marzive-oracle
 >>>>>>> origin/main
