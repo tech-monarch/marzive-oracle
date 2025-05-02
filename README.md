@@ -93,7 +93,7 @@ from gemini_qa.gemini_qa_infer import gemini_answer
 
 question = "What is the Marzive DAO?"
 context = "Your context text here..."
-api_key = "your_gemini_api_key"  # Optional if set as environment variable
+api_key = "AIzaSyDkRIq5E7EJOVQ_g_uWzn5aP7-KUeAYI-o"  # Optional if set as environment variable
 
 answer = gemini_answer(question, context, api_key)
 print(answer)
