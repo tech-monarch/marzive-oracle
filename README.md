@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Marzive Oracle
 
 Marzive Oracle is a question-answering system powered by Google's Gemini AI. It provides concise, focused answers to questions about Marzive DAO and related documents.
@@ -114,6 +113,9 @@ print(answer)
 ## License
 
 [Specify your license here]
+<<<<<<< HEAD
 =======
 # marzive-oracle
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
