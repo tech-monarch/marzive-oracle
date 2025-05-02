@@ -64,13 +64,22 @@ If you have new documents to process:
    ```
    This will extract text from all .docx files and save it to `prepared_documents.json`
 
-### Running the API Server
+### Backend API (Serverless Function)
 
-1. Start the Flask API server:
-   ```bash
-   python api_server.py
-   ```
-   The server will run on `http://localhost:5000`.
+The backend is designed to run as a serverless function under the `api` directory (e.g., for Vercel deployment). There is no need to run a Flask server locally on port 5000.
+
+- To deploy locally with Vercel:
+  1. Install Vercel CLI if you haven't:
+     ```bash
+     npm install -g vercel
+     ```
+  2. Deploy locally:
+     ```bash
+     vercel dev
+     ```
+  3. The API will be available at `/api/chat`.
+
+- For production, deploy the project to Vercel and the backend will be served as a serverless function automatically.
 
 ### Running the Frontend
 
@@ -107,8 +116,8 @@ print(answer)
 ## Troubleshooting
 
 - If you encounter a "Gemini API key not found" error, ensure you've set the `GEMINI_API_KEY` environment variable correctly.
-- If the API server fails to start, check that port 5000 is not in use by another application.
-- If the frontend cannot connect to the API, ensure the API server is running and check for CORS issues.
+- If the frontend cannot connect to the API, ensure the serverless function is deployed and accessible at `/api/chat`.
+- If using Vercel locally, make sure `vercel dev` is running and you are accessing the correct local URL.
 
 ## License
 
